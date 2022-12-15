@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gumi_study/login.dart';
 import 'package:gumi_study/user.dart';
 
 class Profile extends StatefulWidget {
@@ -52,31 +53,37 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(height: 30),
-            Material(
-              borderRadius: BorderRadius.circular(10),
-              elevation: 2,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                    "Log out",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 53,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFFF2F2F2),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                              Text(
+                                "Log out",
                     style: TextStyle(color: Colors.black,
                     fontFamily: "Roboto-Bold",
                     fontSize: 14,
                     ),
                     ),
-                  Icon(Icons.logout_outlined, color: Colors.grey,)
+                    Icon(Icons.logout_outlined, color: Colors.grey,
+                  )
+                          ],),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            );
   }
 }
 
@@ -115,3 +122,5 @@ class IdentitasCard extends StatelessWidget {
     );
   }
 }
+
+
